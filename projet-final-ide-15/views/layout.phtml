@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3WA Restaurant</title>
+    <link rel="stylesheet" href="public/css/3wa-resto.css">
+</head>
+
+<body>
+
+    <!-- En-tête commune -->
+    <header>
+        <h1>
+            <a href="index.php">
+                <img src="public/images/logo.gif" height="63" width="57" alt="3WA Restaurant">Restaurant - Made In America !
+            </a>
+        </h1>
+    </header>
+
+
+
+    <!-- Interface utilisateur -->
+
+    <?php if ($this->is_connect()) : ?>
+        <!-- Puisque is_connect est en trait, on utilise $this qui fait référence au controller utiliser -->
+        <nav>
+            <ul class="link-list">
+                <li>
+                    <a class="button button-primary" href="index.php?action=booking">Réservation</a>
+                </li>
+                <li>
+                    <a class="button button-primary" href="index.php?action=Meals">Commande</a>
+                </li>
+                <li class="layout-right">
+                    Bonjour <?= $_SESSION["user"]['lastName']; ?> <?= $_SESSION["user"]['firstName']; ?>
+                    <a class="button button-primary" href="index.php?action=disconnect">Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+
+    <?php elseif ($this->is_connectAdmin()) : ?>
+        <ul class="link-list">
+            <li>
+                <a class="button button-primary" href="index.php?action=admin">Tableau de bord</a>
+            </li>
+            <li class="layout-right">
+                Bonjour <?= $_SESSION["admin"]['mail']; ?>
+                <a class="button button-primary" href="index.php?action=disconnectAdmin">Déconnexion</a>
+            </li>
+        </ul>
+    <?php else : ?>
+        <nav class="user-interface">
+            <ul class="link-list">
+                <li>
+                    <a class="button button-primary" href="index.php?action=createAccount">Créer un compte</a>
+                </li>
+                <li class="layout-right">
+                    <a class="button button-primary" href="index.php?action=login">Connexion</a>
+                </li>
+            </ul>
+        </nav>
+    <?php endif ?>
+
+    <hr>
+
+    <main>
+
+        <?php if (isset($message)) : ?>
+            <p><?= $message ?></p>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['message'])) : ?>
+            <p><?= $_GET['message'] ?></p>
+        <?php endif; ?>
+
+        <?php require $template . ".phtml"; ?>
+    </main>
+
+    <hr>
+
+    <!-- Pied de page commun -->
+    <footer>
+        <ul class="link-list">
+            <li><img src="public/images/payment/visa.png" alt="Visa"></li>
+            <li><img src="public/images/payment/mastercard.png" alt="MasterCard"></li>
+            <li><img src="public/images/payment/paypal.png" alt="PayPal"></li>
+        </ul>
+        <small>Réalisé avec amour par les élèves de la 3W Academy</small>
+    </footer>
+
+
+</body>
+
+</html>

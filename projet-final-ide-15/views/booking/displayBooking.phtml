@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <th>Client</th>
+        <th>Date</th>
+        <th>Heure</th>
+        <th>Nombre de couverts</th>
+    </thead>
+    <tbody>
+        <?php foreach ($booking as $row) : ?>
+            <tr>
+                <td><?= $row['firstName'] ?> <?= $row['lastName'] ?></td>
+                <td><?= date('d/m/Y', strtotime($row['date'])) ?></td>
+                <td><?= date('H:i', strtotime($row['date'])) ?></td>
+                <td><?= $row['customersNumber'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

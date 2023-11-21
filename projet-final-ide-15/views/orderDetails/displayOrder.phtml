@@ -1,0 +1,32 @@
+<h2>Commande n° <?php echo $_GET['order_id']; ?></h2>
+<p class="right"><a href="index.php?action=displayOrders">Retour à la liste des commandes</a></p>
+
+<p>Nom prénom : <?php echo $getOrder[0]['firstName'] . ' ' . $getOrder[0]['lastName']; ?></p>
+<p>Adresse : <?php echo $getOrder[0]['address']; ?></p>
+<p>Ville : <?php echo $getOrder[0]['city']; ?></p>
+<p>Code postal : <?php echo $getOrder[0]['postalCode']; ?></p>
+<p>Phone : <?php echo $getOrder[0]['phone']; ?></p>
+<p>Mail : <?php echo $getOrder[0]['mail']; ?></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID article</th>
+            <th>Nom</th>
+            <th>Quantité</th>
+            <th>Prix unitaire</th>
+            <th>Prix Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($getOrder as $row) : ?>
+            <tr>
+                <td><?php echo $row['meal_ID']; ?></td>
+                <td><?php echo $row['nameMeal']; ?></td>
+                <td><?php echo $row['quantity']; ?></td>
+                <td><?php echo $row['priceEach']; ?></td>
+                <td><?php echo $row['total']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

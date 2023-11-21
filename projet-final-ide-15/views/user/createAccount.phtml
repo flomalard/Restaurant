@@ -1,0 +1,64 @@
+<h2>Création d'un compte client</h2>
+
+<form action="index.php?action=createAccount" method='post'>
+
+    <fieldset>
+        <legend>Identité et coordonnées</legend>
+        <ul>
+            <li>
+                <label for="lastName">Nom</label>
+                <input type="text" name="lastName" id="lastName">
+            </li>
+            <li>
+                <label for="firstName">Prénom</label>
+                <input type="text" name="firstName" id="firstName">
+            </li>
+            <li>
+                <label for="birthdate">Date de naissance</label>
+                <input type="date" id="birthdate" name="birthdate" min="1900-01-01" max="<?php echo date('Y-m-d', strtotime('-15 years')); ?>">
+
+            </li>
+            <li>
+                <label for="address"> Adresse</label>
+                <input type="text" name="address" id="address">
+            </li>
+            <li>
+                <label for="city"> Ville </label>
+                <input type="text" name="city" id="city">
+            </li>
+            <li>
+                <label for="postalCode"> Code postal</label>
+                <input type="text" name="postalCode" id="postalCode">
+            </li>
+            <li>
+                <label for="phone"> Téléphone</label>
+                <input type="text" name="phone" id="phone">
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Informations d'authentification</legend>
+        <ul>
+            <li>
+                <label for="mail"> Email</label>
+                <input type="mail" name="mail" id="mail">
+            </li>
+            <li>
+                <label for="pass">Mot de passe</label>
+                <input type="text" name="pass" id="pass">
+            </li>
+            <li>
+                <label for="passConfirm"> Confirmer votre mot de passe</label>
+                <input type="text" name="passConfirm" id="passConfirm">
+            </li>
+        </ul>
+    </fieldset>
+
+    <input type="submit" id="submit" name="createAccount" value="Créer mon compte">
+    <input type="reset" value="Annuler">
+
+</form>
+
+<!-- Le script qui correspond à cette view -->
+<script type="module" src="public/js/createAccount/app.js"></script>

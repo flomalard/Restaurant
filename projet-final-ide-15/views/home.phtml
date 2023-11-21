@@ -1,0 +1,11 @@
+<?php foreach ($meals as $meal) : ?>
+    <h3><?= $meal['nameMeal'] ?></h3>
+    <p><?= $meal['description'] ?></p>
+    <p><?= $meal['price'] ?></p>
+    <br>
+    <?php if (empty($meal['image'])) : ?>
+        <img src="public/images/meals/no-photo.png">
+    <?php else : ?>
+        <img src="public/images/meals/<?= $meal['image'] ?>">
+    <?php endif; ?>
+<?php endforeach; ?>

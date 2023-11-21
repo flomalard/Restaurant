@@ -1,0 +1,25 @@
+<h2>Liste des produits</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Prix de vente</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($meals as $meal) : ?>
+            <tr>
+                <td><img class="imageList" src="public/images/meals/<?= $meal['image'] ?>" alt="<?= htmlspecialchars($meal['description']) ?>"></td>
+                <td><?= htmlspecialchars($meal['nameMeal']) ?></td>
+                <td><?= htmlspecialchars($meal['description']) ?></td>
+                <td><?= htmlspecialchars($meal['price']) ?>€</td>
+                <td><a href="index.php?action=updateMeal&meal_id=<?= htmlspecialchars($meal["meal_ID"]) ?>">Modifier</a></td>
+                <td><a href="index.php?action=deleteMeal&meal_id=<?= htmlspecialchars($meal["meal_ID"]) ?>">Supprimer</a></td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
+<a class="button button-primary" href="index.php?action=newMeal">Ajouter un produit</a>

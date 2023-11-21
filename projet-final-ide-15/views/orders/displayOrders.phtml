@@ -1,0 +1,26 @@
+<!-- Votre tableau HTML -->
+<table>
+    <thead>
+        <tr>
+            <th>Num</th>
+            <th>Nom du client</th>
+            <th>Date</th>
+            <th>Prix total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($orders as $order) : ?>
+            <tr>
+
+                <td><a href="index.php?action=displayOrder&order_id=<?= $order['order_ID'] ?>"><?= $order['order_ID'] ?></a></td>
+                <td> <?= $order['firstName'] . $order['lastName'] ?> </td>
+                <td> <?= $order['dateOrder'] ?> </td>
+                <td> <?= $order['total'] ?> </td>
+
+            </tr>
+
+        <?php endforeach; ?>
+
+    </tbody>
+</table>

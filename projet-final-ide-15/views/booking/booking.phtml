@@ -1,0 +1,42 @@
+<h2>Réservation d'une table</h2>
+
+<form action="index.php?action=booking" method='post'>
+
+    <fieldset>
+        <legend>Informations</legend>
+        <ul>
+            <li>
+                <label for="date">Date de réservation :</label>
+                <input type="date" id="date" name="date" min="<?php echo date('Y-m-d') ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')) ?>">
+            </li>
+            <li>
+                <label for="hour">à :</label>
+                <select name="hour" id="hour">
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                </select>
+                <label for="minute"> : </label>
+                <select name="minute" id="minute">
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
+            </li>
+            <li>
+                <label for="customersNumber">Nombre de couverts :</label>
+                <input type="number" name="customersNumber" id="customersNumber">
+            </li>
+        </ul>
+    </fieldset>
+
+    <input type="submit" id="submit" name="reservation" value="Réserver">
+    <input type="reset" value="Annuler">
+
+</form>
+
+<script type="module" src="public/js/booking/app.js"></script>

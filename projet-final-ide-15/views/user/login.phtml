@@ -1,0 +1,24 @@
+<h2>Se connecter avec un compte utilisateur</h2>
+
+<form action="index.php?action=login" method='post'>
+    
+    <fieldset>
+        <legend>Informations d'authentification</legend>
+        <ul>
+            <li>
+                <label for="mail">Email</label>
+                <input type="mail" name="mail" id="mail">
+            </li>
+            <li>
+                <label for="pass">Mot de passe</label>
+                <input type="password" name="pass" id="pass">
+            </li>
+        </ul>
+    </fieldset>
+    
+    <input type="submit" id="login" name="login" value="Connexion">
+    <input type="reset" value="Annuler">
+    
+</form>
+
+<script type="module" src="public/js/login/app.js"></script>

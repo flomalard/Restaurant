@@ -1,0 +1,34 @@
+<h2>Ajout d'un produit alimentaire au catalogue</h2>
+<p class="right"><a href="index.php?action=displayMeals">Retour à la liste des produits</a></p>
+
+<form action="index.php?action=newMeal" method='post' enctype="multipart/form-data">
+    
+    <fieldset>
+        <legend>Caractéristiques</legend>
+        <ul>
+            <li>
+                <label for="name">Nom :</label>
+                <input type="text" name="name" id="name">
+            </li>
+            <li>
+                <label for="description">Description :</label>
+                <textarea name="description" id="description"></textarea>
+            </li>
+            <li>
+                <label for="image">Image :</label>
+                <input type="file" name="image">
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend>Approvisionnement</legend>
+        <label for="price">Prix de vente :</label>
+        <input type="text" name="price" id="price">
+    </fieldset>
+    
+    <input type="submit" id="submit" name="addMeal" value="Ajouter">
+    <input type="reset" value="Annuler">
+    
+</form>
+
+<script type="module" src="public/js/meal/app.js"></script>

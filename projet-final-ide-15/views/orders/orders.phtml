@@ -1,0 +1,69 @@
+<div id="validationMessage"></div>
+
+<h2>Passez une commande</h2>
+
+<form action="index.php?action=Meals" method='post'>
+
+    <fieldset>
+        <legend>Ajouté un produit</legend>
+        <ul>
+            <li>
+                <label for="meal_ID">Nom :</label>
+                <select name="select" id="category">
+                    <?php foreach ($meals as $meal) : ?>
+                        <option namespace id="nameOption" value="<?= $meal['meal_ID'] ?>"><?= $meal['nameMeal'] ?></option>
+                    <?php endforeach ?>
+                </select>
+
+
+                <div>
+                    <p> Description :
+                        <span id="description"></span>
+                    </p>
+                    <p>Prix :
+                        <span id="price"></span>
+                    </p>
+                    <img id="image" src="" alt="">
+                </div>
+
+            </li>
+            <li>
+                <label for="quantity">Quantité :</label>
+
+                <input id="quantity" type="number" name="quantity" min="1" value="1" onchange="fixQuantity(this)">
+                <button id="add" type="button">Ajouter</button>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset id="recapFieldset">
+        <legend>Récapitulatif de votre commande</legend>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Quantité</th>
+                    <th>Produit</th>
+                    <th>Description</th>
+                    <th>Prix unitaire</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <td colspan="3">Prix total</td>
+                    <td id="totalPrice"></td>
+                </tr>
+            </tfoot>
+            <tbody id="localStorage0">
+
+            </tbody>
+        </table>
+
+    </fieldset>
+
+    <input type="submit" id="submit" name="validate" value="Validé la commande">
+    <input id="clear" type="button" value="Annuler" />
+
+</form>
+
+<script src="public/js/orders/validate_orders.js"></script>
